@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('employees', function (Blueprint $table) {
@@ -20,13 +17,18 @@ return new class extends Migration
             $table->text('alamat');
             $table->date('tanggal_masuk');
             $table->enum('status', ['aktif', 'nonaktif'])->default('aktif');
+
+            //     // Tambahkan foreign key ke tabel master
+            //     $table->unsignedBigInteger('departemen_id');
+            //     $table->unsignedBigInteger('jabatan_id');
+
             $table->timestamps();
+
+            //     $table->foreign('departemen_id')->references('id')->on('departments')->onDelete('cascade');
+            //     $table->foreign('jabatan_id')->references('id')->on('positions')->onDelete('cascade');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('employees');

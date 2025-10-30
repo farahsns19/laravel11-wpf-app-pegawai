@@ -13,12 +13,17 @@ return new class extends Migration
     {
         Schema::create('salaries', function (Blueprint $table) {
             $table->id();
+
+            // Foreign key ke employees
             $table->unsignedBigInteger('karyawan_id');
+
             $table->string('bulan', 10);
+            $table->integer('tahun');
             $table->decimal('gaji_pokok', 10, 2);
             $table->decimal('tunjangan', 10, 2)->default(0);
             $table->decimal('potongan', 10, 2)->default(0);
-            $table->decimal('total_gaji', 10, 2);
+            $table->decimal('total_gaji', 10, 2)->default(0);
+
             $table->timestamps();
 
             // Relasi ke tabel employees

@@ -12,7 +12,7 @@
         <nav>
             <ul>
                 <li><a href="{{ url('/employee') }}">Employee</a></li>
-                <li><a href="{{ url('/department') }}">Department</a></li>
+                <li><a href="{{ url('/departments') }}">Department</a></li>
                 <li><a href="{{ url('/attendance') }}">Attendance</a></li>
                 <li><a href="{{ url('/report') }}">Report</a></li>
                 <li><a href="{{ url('/settings') }}">Settings</a></li>

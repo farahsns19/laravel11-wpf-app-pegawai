@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('attendance', function (Blueprint $table) {
             $table->id();
+
+            // Sesuai modul: gunakan karyawan_id
             $table->unsignedBigInteger('karyawan_id');
             $table->date('tanggal');
             $table->time('waktu_masuk')->nullable();
@@ -20,7 +22,7 @@ return new class extends Migration
             $table->enum('status_absensi', ['hadir', 'izin', 'sakit', 'alpha']);
             $table->timestamps();
 
-            // Foreign key constraint
+            // Foreign key ke tabel employees
             $table->foreign('karyawan_id')
                 ->references('id')
                 ->on('employees')

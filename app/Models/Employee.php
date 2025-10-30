@@ -14,5 +14,19 @@ class Employee extends Model
         'alamat',
         'tanggal_masuk',
         'status',
+        'departemen_id',
+        'jabatan_id',
     ];
+
+    // Relasi ke Departemen
+    public function department()
+    {
+        return $this->belongsTo(Department::class, 'departemen_id');
+    }
+
+    // Relasi ke Jabatan
+    public function position()
+    {
+        return $this->belongsTo(Position::class, 'jabatan_id');
+    }
 }
